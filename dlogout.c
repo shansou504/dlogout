@@ -76,7 +76,7 @@ activate (GtkApplication *app,
 	gtk_label_set_xalign (GTK_LABEL(labelreboot), 0);
 	
 	GtkWidget *rowshutdown = gtk_list_box_row_new();
-	GtkWidget *labelshutdown = gtk_label_new("	hutdown");
+	GtkWidget *labelshutdown = gtk_label_new("	Shutdown");
 	gtk_container_add (GTK_CONTAINER (rowshutdown), labelshutdown);
 	gtk_container_add (GTK_CONTAINER (listbox), rowshutdown);
 	gtk_label_set_xalign (GTK_LABEL(labelshutdown), 0);
