@@ -54,25 +54,25 @@ activate (GtkApplication *app,
 	gtk_list_box_set_selection_mode (GTK_LIST_BOX(listbox), GTK_SELECTION_SINGLE);
 
 	GtkWidget *rowlock = gtk_list_box_row_new();
-	GtkWidget *labellock = gtk_label_new(" Lock");
+	GtkWidget *labellock = gtk_label_new("	Lock");
 	gtk_container_add (GTK_CONTAINER (rowlock), labellock);
 	gtk_container_add (GTK_CONTAINER (listbox), rowlock);
 	gtk_label_set_xalign (GTK_LABEL(labellock), 0);
 
 	GtkWidget *rowquit = gtk_list_box_row_new();
-	GtkWidget *labelquit = gtk_label_new(" Quit");
+	GtkWidget *labelquit = gtk_label_new("	Quit");
 	gtk_container_add (GTK_CONTAINER (rowquit), labelquit);
 	gtk_container_add (GTK_CONTAINER (listbox), rowquit);
 	gtk_label_set_xalign (GTK_LABEL(labelquit), 0);
 
 	GtkWidget *rowreboot = gtk_list_box_row_new();
 	gtk_container_add (GTK_CONTAINER (listbox), rowreboot);
-	GtkWidget *labelreboot = gtk_label_new(" Reboot");
+	GtkWidget *labelreboot = gtk_label_new("	Reboot");
 	gtk_container_add (GTK_CONTAINER (rowreboot), labelreboot);
 	gtk_label_set_xalign (GTK_LABEL(labelreboot), 0);
 
 	GtkWidget *rowshutdown = gtk_list_box_row_new();
-	GtkWidget *labelshutdown = gtk_label_new(" Shutdown");
+	GtkWidget *labelshutdown = gtk_label_new("	hutdown");
 	gtk_container_add (GTK_CONTAINER (rowshutdown), labelshutdown);
 	gtk_container_add (GTK_CONTAINER (listbox), rowshutdown);
 	gtk_label_set_xalign (GTK_LABEL(labelshutdown), 0);
