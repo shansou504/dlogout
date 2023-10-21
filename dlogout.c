@@ -25,7 +25,7 @@ action (GtkListBox *listbox)
 			system("pkill -f dlogout &");
 			break;
 		case 1:
-			system("pkill -f dwm &");
+			system("pkill -f xorg &");
 			system("pkill -f dlogout &");
 			break;
 		case 2:
