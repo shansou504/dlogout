@@ -1,7 +1,7 @@
 CFLAGS = `pkg-config --cflags gtk+-3.0`
 LIBS = `pkg-config --libs gtk+-3.0`
 
-binclock-gtk : 
+binclock-gtk : dlogout.c
 	cc -o dlogout dlogout.c $(CFLAGS) $(LIBS)
 
 install :
