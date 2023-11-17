@@ -67,7 +67,7 @@ activate (GtkApplication *app,
 //		a = x+90;
 //	}
 //	else {
-		a = geometry.width - w - 10;
+		a = geometry.width - w - 20;
 //	}
 //	if (y+h > geometry.height - 201) {
 //		b = y+100;
