@@ -51,23 +51,23 @@ activate (GtkApplication *app,
 	gtk_window_set_default_size (GTK_WINDOW (window), w, h);
 	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
 	gtk_window_set_skip_taskbar_hint (GTK_WINDOW (window), TRUE);
-//	gtk_window_set_gravity (GTK_WINDOW (window), GDK_GRAVITY_CENTER);
-	gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_MOUSE);
+	gtk_window_set_gravity (GTK_WINDOW (window), GDK_GRAVITY_NORTH_EAST);
+//	gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_MOUSE);
 	g_signal_connect(window, "key_press_event", G_CALLBACK(check_escape), NULL);
 
-//	GdkDisplay *display;
-//	display = gdk_display_get_default();
-//	GdkMonitor *monitor;
-//	monitor = gdk_display_get_primary_monitor(display);
-//	GdkRectangle geometry;
-//  gdk_monitor_get_geometry (monitor, &geometry); 
-//	gint a,b,x,y;
-//	gtk_window_get_position (GTK_WINDOW (window), &x, &y);
+	GdkDisplay *display;
+	display = gdk_display_get_default();
+	GdkMonitor *monitor;
+	monitor = gdk_display_get_primary_monitor(display);
+	GdkRectangle geometry;
+	gdk_monitor_get_geometry (monitor, &geometry); 
+	gint a,b,x,y;
+	gtk_window_get_position (GTK_WINDOW (window), &x, &y);
 //	if (x+w > geometry.width - 201) {
 //		a = x+90;
 //	}
 //	else {
-//		a = x;
+		a = geometry.width - w - 10;
 //	}
 //	if (y+h > geometry.height - 201) {
 //		b = y+100;
@@ -75,7 +75,7 @@ activate (GtkApplication *app,
 //	else {
 //		b = y;
 //	}
-//	gtk_window_move (GTK_WINDOW (window), a, b);
+	gtk_window_move (GTK_WINDOW (window), a, 0);
 //	g_print("gemoetry %d,%d\nw,h %d,%d\nx,y %d,%d\na,b %d,%d\n", geometry.width, geometry.height, w, h, x, y, a, b);
 	
 	GtkWidget *listbox;
