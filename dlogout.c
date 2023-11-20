@@ -25,13 +25,23 @@ action (GtkListBox *listbox)
 			system("pkill -f dlogout &");
 			break;
 		case 1:
-			system("pkill -f xorg &");
+			system("pkill -f dwm &");
 			system("pkill -f dlogout &");
 			break;
 		case 2:
-			system("systemctl reboot");
+			system("slock &");
+			system("systemctl suspend &");
+			system("pkill -f dlogout &");
 			break;
 		case 3:
+			system("slock &");
+			system("systemctl hibernate &");
+			system("pkill -f dlogout &");
+			break;
+		case 4:
+			system("systemctl reboot");
+			break;
+		case 5:
 			system("systemctl poweroff");
 			break;
 		default:
@@ -62,7 +72,7 @@ activate (GtkApplication *app,
 	gdk_monitor_get_geometry (monitor, &geometry); 
 	gint a,b,x,y;
 	gtk_window_get_position (GTK_WINDOW (window), &x, &y);
-	gtk_window_move (GTK_WINDOW (window), geometry.width - w - 20, 0);
+	gtk_window_move (GTK_WINDOW (window), geometry.width - w, 0);
 	
 	GtkWidget *listbox;
 	listbox = gtk_list_box_new ();
@@ -70,16 +80,28 @@ activate (GtkApplication *app,
 	gtk_list_box_set_selection_mode (GTK_LIST_BOX(listbox), GTK_SELECTION_SINGLE);
 	
 	GtkWidget *rowlock = gtk_list_box_row_new();
-	GtkWidget *labellock = gtk_label_new("Lock Screen");
+	GtkWidget *labellock = gtk_label_new("Lock");
 	gtk_container_add (GTK_CONTAINER (rowlock), labellock);
 	gtk_container_add (GTK_CONTAINER (listbox), rowlock);
 	gtk_label_set_xalign (GTK_LABEL(labellock), 0);
 	
-	GtkWidget *rowquit = gtk_list_box_row_new();
-	GtkWidget *labelquit = gtk_label_new("Logout");
-	gtk_container_add (GTK_CONTAINER (rowquit), labelquit);
-	gtk_container_add (GTK_CONTAINER (listbox), rowquit);
-	gtk_label_set_xalign (GTK_LABEL(labelquit), 0);
+	GtkWidget *rowlogout = gtk_list_box_row_new();
+	GtkWidget *labellogout = gtk_label_new("Logout");
+	gtk_container_add (GTK_CONTAINER (rowlogout), labellogout);
+	gtk_container_add (GTK_CONTAINER (listbox), rowlogout);
+	gtk_label_set_xalign (GTK_LABEL(labellogout), 0);
+
+	GtkWidget *rowsleep = gtk_list_box_row_new();
+	GtkWidget *labelsleep = gtk_label_new("Sleep");
+	gtk_container_add (GTK_CONTAINER (rowsleep), labelsleep);
+	gtk_container_add (GTK_CONTAINER (listbox), rowsleep);
+	gtk_label_set_xalign (GTK_LABEL(labelsleep), 0);
+	
+	GtkWidget *rowhibernate = gtk_list_box_row_new();
+	GtkWidget *labelhibernate = gtk_label_new("Hibernate");
+	gtk_container_add (GTK_CONTAINER (rowhibernate), labelhibernate);
+	gtk_container_add (GTK_CONTAINER (listbox), rowhibernate);
+	gtk_label_set_xalign (GTK_LABEL(labelhibernate), 0);
 	
 	GtkWidget *rowreboot = gtk_list_box_row_new();
 	gtk_container_add (GTK_CONTAINER (listbox), rowreboot);
