@@ -70,8 +70,6 @@ activate (GtkApplication *app,
 	monitor = gdk_display_get_primary_monitor(display);
 	GdkRectangle geometry;
 	gdk_monitor_get_geometry (monitor, &geometry); 
-	gint a,b,x,y;
-	gtk_window_get_position (GTK_WINDOW (window), &x, &y);
 	gtk_window_move (GTK_WINDOW (window), geometry.width - w, 0);
 	
 	GtkWidget *listbox;
